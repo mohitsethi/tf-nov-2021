@@ -8,10 +8,13 @@ terraform {
   required_version = ">= 0.14.9"
 }
 
+variable "region" {
+    type = string
+    default = "us-west-2"
+}
+
 provider "aws" {
-    region = "us-west-2"
-    access_key = ""
-    secret_key = ""
+  region = var.region
 }
 
 resource "aws_instance" "app_server" {
@@ -31,4 +34,5 @@ resource "aws_instance" "app_server_2" {
   tags = {
     Name = "ExampleAppServerInstance - Nov 22 2021 - 2"
   }
-}
+}xpor
+
